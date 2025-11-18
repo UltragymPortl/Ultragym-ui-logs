@@ -15,7 +15,7 @@ async def connect_to_mongo():
     client = AsyncIOMotorClient(MONGO_URI)
     _db = client[DB_NAME]
     # Optionally ensure indexes
-    await _db["logs"].create_index("createdAt")
+    await _db["logs"].create_index("dateIndex")
     await _db["logs"].create_index("userId")
 
 async def close_mongo_connection():
